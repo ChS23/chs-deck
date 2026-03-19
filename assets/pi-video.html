@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body { font-family: sans-serif; font-size: 13px; padding: 8px; color: #ddd; background: #1e1e2e; }
+  label { display: block; margin-top: 10px; margin-bottom: 4px; color: #cba6f7; }
+  input  { width: 100%; padding: 5px; background: #313244; color: #cdd6f4; border: 1px solid #45475a; border-radius: 4px; box-sizing: border-box; }
+  .row   { display: flex; gap: 6px; }
+  .row input { width: 100%; }
+  p.hint { font-size: 11px; color: #585b70; margin-top: 12px; }
+</style>
+</head>
+<body>
+
+<label>Video path</label>
+<input id="path" type="text" placeholder="/home/user/video.mp4">
+
+<label>Start slot (top-left index)</label>
+<input id="start" type="number" min="0" max="17" value="0">
+
+<div class="row">
+  <div style="flex:1">
+    <label>Cols</label>
+    <input id="cols" type="number" min="1" max="5" value="5">
+  </div>
+  <div style="flex:1">
+    <label>Rows</label>
+    <input id="rows" type="number" min="1" max="3" value="3">
+  </div>
+  <div style="flex:1">
+    <label>FPS</label>
+    <input id="fps" type="number" min="1" max="30" value="10">
+  </div>
+</div>
+
+<p class="hint">
+  Place this action on every button in the grid with <b>identical settings</b>.<br>
+  Requires <code>ffmpeg</code> in PATH.
+</p>
+
+<script>
+  const fields = ['path', 'start', 'cols', 'rows', 'fps'];
+
+  document.addEventListener('websocketCreate', ({ detail: { actionInfo, websocket } }) => {
+    const settings = actionInfo?.payload?.settings ?? {};
+    fields.forEach(id => {
+      if (settings[id] !== undefined) document.getElementById(id).value = settings[id];
+    });
+
+    const save = () => {
+      const payload = {};
+      fields.forEach(id => {
+        const el = document.getElementById(id);
+        payload[id] = el.type === 'number' ? Number(el.value) : el.value;
+      });
+      websocket.send(JSON.stringify({ event: 'setSettings', context: actionInfo.context, payload }));
+    };
+
+    fields.forEach(id => document.getElementById(id).addEventListener('change', save));
+  });
+</script>
+</body>
+</html>

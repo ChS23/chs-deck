@@ -1,0 +1,99 @@
+{
+  "Name": "chs-deck",
+  "Description": "Personal OpenDeck plugin: Docker, GLM, app launchers",
+  "Author": "chs",
+  "Version": "0.1.0",
+  "PluginUUID": "chs.deck.sdPlugin",
+  "CodePathLin": "chs-deck-linux",
+  "Icon": "assets/icon",
+  "Category": "Utilities",
+  "OS": [
+    { "Platform": "linux" }
+  ],
+  "Actions": [
+    {
+      "Name": "Docker: Container Count",
+      "UUID": "chs.deck.docker.count",
+      "Icon": "assets/docker-count",
+      "Tooltip": "Shows the number of running Docker containers, updates every 5s",
+      "Controllers": ["Keypad"],
+      "States": [
+        {
+          "Image": "assets/docker-count",
+          "Title": "0",
+          "TitleAlignment": "middle",
+          "FontSize": "16",
+          "TitleColor": "#7dd3fc"
+        }
+      ]
+    },
+    {
+      "Name": "Media Playback",
+      "UUID": "chs.deck.media",
+      "Icon": "assets/media-play",
+      "Tooltip": "Shows current media (playerctl): title, artist, status. On press: play/pause, next, prev, stop.",
+      "Controllers": ["Keypad"],
+      "PropertyInspectorPath": "assets/pi-media.html",
+      "States": [
+        {
+          "Image": "assets/media-play",
+          "Title": "⏹\n—",
+          "TitleAlignment": "middle",
+          "FontSize": "11",
+          "TitleColor": "#f0abfc"
+        }
+      ]
+    },
+    {
+      "Name": "Video Tile",
+      "UUID": "chs.deck.video",
+      "Icon": "assets/media-play",
+      "Tooltip": "One tile of a video playing across multiple buttons. Place on each button in the grid with identical settings.",
+      "Controllers": ["Keypad"],
+      "PropertyInspectorPath": "assets/pi-video.html",
+      "States": [
+        {
+          "Image": "assets/media-play",
+          "Title": "",
+          "TitleAlignment": "middle",
+          "FontSize": "11",
+          "TitleColor": "#f0abfc"
+        }
+      ]
+    },
+    {
+      "Name": "Shell Command",
+      "UUID": "chs.deck.shell",
+      "Icon": "assets/shell",
+      "Tooltip": "Runs a shell command on press",
+      "Controllers": ["Keypad"],
+      "PropertyInspectorPath": "assets/pi-shell.html",
+      "States": [
+        {
+          "Image": "assets/shell",
+          "Title": "$",
+          "TitleAlignment": "middle",
+          "FontSize": "20",
+          "TitleColor": "#22c55e"
+        }
+      ]
+    },
+    {
+      "Name": "Stats Display",
+      "UUID": "chs.deck.stats",
+      "Icon": "assets/stats-cpu",
+      "Tooltip": "Shows CPU%, RAM% or Docker container count.",
+      "Controllers": ["Keypad"],
+      "PropertyInspectorPath": "assets/pi-stats.html",
+      "States": [
+        {
+          "Image": "assets/stats-cpu",
+          "Title": "",
+          "TitleAlignment": "middle",
+          "FontSize": "14",
+          "TitleColor": "#7dd3fc"
+        }
+      ]
+    }
+  ]
+}

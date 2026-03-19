@@ -1,0 +1,10 @@
+# Навигация по профилям (col 3-4, row 2)
+# Используй в любом профиле: layers = ["nav", ...]
+
+[[slot]]
+index  = 15
+action = "switch-profile-prev"
+
+[[slot]]
+index  = 16
+action = "switch-profile-next"

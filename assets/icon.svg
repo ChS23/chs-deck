@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" width="72" height="72">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1b2a"/>
+      <stop offset="100%" style="stop-color:#1a2f4a"/>
+    </linearGradient>
+    <linearGradient id="blue" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#38bdf8"/>
+      <stop offset="100%" style="stop-color:#2496ED"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="72" height="72" rx="10" fill="url(#bg)"/>
+
+  <!-- Container grid 3×2 -->
+  <rect x="8"  y="12" width="16" height="12" rx="2.5" fill="url(#blue)" opacity="0.85"/>
+  <rect x="27" y="12" width="16" height="12" rx="2.5" fill="url(#blue)" opacity="0.85"/>
+  <rect x="46" y="12" width="16" height="12" rx="2.5" fill="url(#blue)"/>
+
+  <rect x="8"  y="27" width="16" height="12" rx="2.5" fill="url(#blue)" opacity="0.85"/>
+  <rect x="27" y="27" width="16" height="12" rx="2.5" fill="url(#blue)" opacity="0.85"/>
+  <rect x="46" y="27" width="16" height="12" rx="2.5" fill="url(#blue)"/>
+
+  <!-- Separator lines -->
+  <line x1="8"  y1="18" x2="24" y2="18" stroke="#a8d8ff" stroke-width="0.6" opacity="0.4"/>
+  <line x1="27" y1="18" x2="43" y2="18" stroke="#a8d8ff" stroke-width="0.6" opacity="0.4"/>
+  <line x1="46" y1="18" x2="62" y2="18" stroke="#a8d8ff" stroke-width="0.6" opacity="0.4"/>
+  <line x1="8"  y1="33" x2="24" y2="33" stroke="#a8d8ff" stroke-width="0.6" opacity="0.4"/>
+  <line x1="27" y1="33" x2="43" y2="33" stroke="#a8d8ff" stroke-width="0.6" opacity="0.4"/>
+  <line x1="46" y1="33" x2="62" y2="33" stroke="#a8d8ff" stroke-width="0.6" opacity="0.4"/>
+
+  <!-- Whale platform -->
+  <rect x="6" y="43" width="58" height="5" rx="2.5" fill="#2496ED" opacity="0.65"/>
+
+  <!-- Whale body -->
+  <ellipse cx="30" cy="54" rx="18" ry="8" fill="#2496ED" opacity="0.5"/>
+  <!-- Whale tail -->
+  <path d="M 46 56 Q 54 50 58 56 Q 54 58 46 56 Z" fill="#2496ED" opacity="0.5"/>
+  <!-- Whale eye -->
+  <circle cx="20" cy="52" r="1.5" fill="#0d1b2a" opacity="0.8"/>
+  <!-- Spout -->
+  <path d="M 38 44 Q 40 38 42 36 Q 43 38 41 40 Q 44 36 46 35 Q 46 38 43 41" stroke="#7dd3fc" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.7"/>
+</svg>

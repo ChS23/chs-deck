@@ -1,0 +1,85 @@
+# ─── Profile: media ───────────────────────────────────────────────────────────
+# Медиа-плеер на всех 15 кнопках.
+# layers (display + nav) перекрывают правую колонку и ◀▶ профили.
+#
+#   COL  0      1      2      3      4    │  5  (display ← layer)
+#  ┌──────┬──────┬──────┬──────┬──────────┼────────────┐
+#  │ [0]⏮ │ [1]▶ │ [2]⏭ │ [3]⏹ │ [4]▶/⏸  │  [5] cpu   │  ROW 0
+#  ├──────┼──────┼──────┼──────┼──────────┼────────────┤
+#  │ [6]▶ │ [7]▶ │ [8]▶ │ [9]▶ │ [10]▶   │  [11] ram  │  ROW 1
+#  ├──────┼──────┼──────┼──────┼──────────┼────────────┤
+#  │[12]▶ │[13]▶ │[14]▶ │ [15]◀│  [16]▶  │  [17] 🐳  │  ROW 2
+#  └──────┴──────┴──────┴──────┴──────────┴────────────┘
+#                              ▲──── nav layer ─────▲▲
+
+name              = "media"
+
+# layers всегда поверх — перекрывают [[slot]] ниже
+layers = ["display", "nav"]
+
+# ─── Profile slots (под layers) ───────────────────────────────────────────────
+
+[[slot]]
+index        = 0
+action       = "chs.deck.media"
+media_action = "prev"
+
+[[slot]]
+index        = 1
+action       = "chs.deck.media"
+media_action = "toggle"
+
+[[slot]]
+index        = 2
+action       = "chs.deck.media"
+media_action = "next"
+
+[[slot]]
+index        = 3
+action       = "chs.deck.media"
+media_action = "stop"
+
+[[slot]]
+index        = 4
+action       = "chs.deck.media"
+media_action = "toggle"
+
+[[slot]]
+index        = 6
+action       = "chs.deck.media"
+media_action = "toggle"
+
+[[slot]]
+index        = 7
+action       = "chs.deck.media"
+media_action = "toggle"
+
+[[slot]]
+index        = 8
+action       = "chs.deck.media"
+media_action = "toggle"
+
+[[slot]]
+index        = 9
+action       = "chs.deck.media"
+media_action = "toggle"
+
+[[slot]]
+index        = 10
+action       = "chs.deck.media"
+media_action = "toggle"
+
+[[slot]]
+index        = 12
+action       = "chs.deck.media"
+media_action = "toggle"
+
+[[slot]]
+index        = 13
+action       = "chs.deck.media"
+media_action = "toggle"
+
+[[slot]]
+index        = 14
+action       = "chs.deck.media"
+media_action = "toggle"

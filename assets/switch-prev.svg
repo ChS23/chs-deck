@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" width="72" height="72">
+  <rect width="72" height="72" rx="8" fill="#0d1b2a"/>
+  <!-- Arrow left -->
+  <path d="M 42 22 L 24 36 L 42 50" stroke="#94a3b8" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Label -->
+  <text x="36" y="65" font-family="ui-sans-serif, sans-serif" font-size="13" fill="#94a3b8" text-anchor="middle" letter-spacing="0.5">work</text>
+</svg>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  body { font-family: sans-serif; font-size: 13px; padding: 8px; color: #ddd; background: #1e1e2e; }
+  label { display: block; margin-top: 10px; margin-bottom: 4px; color: #cba6f7; }
+  select { width: 100%; padding: 5px; background: #313244; color: #cdd6f4; border: 1px solid #45475a; border-radius: 4px; }
+  p.hint { font-size: 11px; color: #585b70; margin-top: 12px; }
+</style>
+</head>
+<body>
+<label>Action on press</label>
+<select id="action">
+  <option value="toggle">▶/⏸ Toggle play/pause</option>
+  <option value="next">⏭ Next track</option>
+  <option value="prev">⏮ Previous track</option>
+  <option value="stop">⏹ Stop</option>
+</select>
+<p class="hint">Requires <code>playerctl</code> in PATH.<br>Title/artist auto-refresh every 3 s.</p>
+
+<script>
+  const connectElm = document.getElementById('action');
+
+  document.addEventListener('websocketCreate', function(event) {
+    const { actionInfo, websocket } = event.detail;
+    const settings = actionInfo?.payload?.settings ?? {};
+    if (settings.action) connectElm.value = settings.action;
+
+    connectElm.addEventListener('change', () => {
+      websocket.send(JSON.stringify({
+        event: 'setSettings',
+        context: actionInfo.context,
+        payload: { action: connectElm.value }
+      }));
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,158 @@
+# ─── Profile: cinematic ───────────────────────────────────────────────────────
+# Видео бесшовно на всех 15 кнопках (5×3, слот 0..14).
+# layer nav перекрывает слоты 15 и 16 кнопками переключения профиля.
+# Col 5 (display) остаётся пустой — там нет кнопок.
+#
+#   COL  0      1      2      3      4    │  5
+#  ┌──────┬──────┬──────┬──────┬──────────┼────────────┐
+#  │      │      │      │      │          │            │  ROW 0
+#  │      │    В И Д Е О   5×3            │            │
+#  │      │      │      │      │          │            │  ROW 1
+#  │      │      │      │  [15]│   [16]   │            │  ROW 2
+#  └──────┴──────┴──────┴──────┴──────────┴────────────┘
+#                             ▲──── nav layer ──────▲
+
+name              = "cinematic"
+
+# nav всегда поверх — перекрывает слоты 15/16 из [[slot]] ниже
+layers = ["nav"]
+
+# Укажи свой видеофайл:
+video_path = "/home/chs/Videos/demo.mp4"
+
+# ─── 15 tile-слотов (5 cols × 3 rows, start=0) ───────────────────────────────
+
+[[slot]]
+index       = 0
+action      = "chs.deck.video"
+video_path  = "/home/chs/Videos/demo.mp4"
+video_start = 0
+video_cols  = 5
+video_rows  = 3
+video_fps   = 12
+
+[[slot]]
+index       = 1
+action      = "chs.deck.video"
+video_path  = "/home/chs/Videos/demo.mp4"
+video_start = 0
+video_cols  = 5
+video_rows  = 3
+video_fps   = 12
+
+[[slot]]
+index       = 2
+action      = "chs.deck.video"
+video_path  = "/home/chs/Videos/demo.mp4"
+video_start = 0
+video_cols  = 5
+video_rows  = 3
+video_fps   = 12
+
+[[slot]]
+index       = 3
+action      = "chs.deck.video"
+video_path  = "/home/chs/Videos/demo.mp4"
+video_start = 0
+video_cols  = 5
+video_rows  = 3
+video_fps   = 12
+
+[[slot]]
+index       = 4
+action      = "chs.deck.video"
+video_path  = "/home/chs/Videos/demo.mp4"
+video_start = 0
+video_cols  = 5
+video_rows  = 3
+video_fps   = 12
+
+[[slot]]
+index       = 6
+action      = "chs.deck.video"
+video_path  = "/home/chs/Videos/demo.mp4"
+video_start = 0
+video_cols  = 5
+video_rows  = 3
+video_fps   = 12
+
+[[slot]]
+index       = 7
+action      = "chs.deck.video"
+video_path  = "/home/chs/Videos/demo.mp4"
+video_start = 0
+video_cols  = 5
+video_rows  = 3
+video_fps   = 12
+
+[[slot]]
+index       = 8
+action      = "chs.deck.video"
+video_path  = "/home/chs/Videos/demo.mp4"
+video_start = 0
+video_cols  = 5
+video_rows  = 3
+video_fps   = 12
+
+[[slot]]
+index       = 9
+action      = "chs.deck.video"
+video_path  = "/home/chs/Videos/demo.mp4"
+video_start = 0
+video_cols  = 5
+video_rows  = 3
+video_fps   = 12
+
+[[slot]]
+index       = 10
+action      = "chs.deck.video"
+video_path  = "/home/chs/Videos/demo.mp4"
+video_start = 0
+video_cols  = 5
+video_rows  = 3
+video_fps   = 12
+
+[[slot]]
+index       = 12
+action      = "chs.deck.video"
+video_path  = "/home/chs/Videos/demo.mp4"
+video_start = 0
+video_cols  = 5
+video_rows  = 3
+video_fps   = 12
+
+[[slot]]
+index       = 13
+action      = "chs.deck.video"
+video_path  = "/home/chs/Videos/demo.mp4"
+video_start = 0
+video_cols  = 5
+video_rows  = 3
+video_fps   = 12
+
+[[slot]]
+index       = 14
+action      = "chs.deck.video"
+video_path  = "/home/chs/Videos/demo.mp4"
+video_start = 0
+video_cols  = 5
+video_rows  = 3
+video_fps   = 12
+
+[[slot]]
+index       = 15
+action      = "chs.deck.video"
+video_path  = "/home/chs/Videos/demo.mp4"
+video_start = 0
+video_cols  = 5
+video_rows  = 3
+video_fps   = 12
+
+[[slot]]
+index       = 16
+action      = "chs.deck.video"
+video_path  = "/home/chs/Videos/demo.mp4"
+video_start = 0
+video_cols  = 5
+video_rows  = 3
+video_fps   = 12

@@ -1,0 +1,16 @@
+# Правая колонка (col 5): CPU / RAM / Docker
+# Используй в любом профиле: layers = ["display", ...]
+
+[[slot]]
+index  = 5
+action = "chs.deck.stats"
+stat   = "cpu"
+
+[[slot]]
+index  = 11
+action = "chs.deck.stats"
+stat   = "ram"
+
+[[slot]]
+index  = 17
+action = "chs.deck.docker.count"

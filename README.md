@@ -2,7 +2,7 @@
 
 Personal [OpenDeck](https://github.com/ninjas-code-official/opendeck) plugin for the **Ajazz AKP153E** — a 5×3 button grid with a right display column (18 slots total). Written in Rust.
 
-> 📸 _add a photo of your deck here_
+![Ajazz AKP153E](docs/deck.jpg)
 
 ---
 

@@ -3,3 +3,4 @@ pub mod media;
 pub mod shell;
 pub mod stats;
 pub mod video;
+pub mod webtile;

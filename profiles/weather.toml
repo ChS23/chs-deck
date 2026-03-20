@@ -1,0 +1,175 @@
+# ─── Profile: weather ─────────────────────────────────────────────────────────
+#
+#  Все 15 левых кнопок (5×3) — тайловый рендер wttr.in
+#  Правая колонка (col 5) — stats как обычно
+#
+name   = "weather"
+layers = ["display", "nav"]
+
+# 15 webtile-слотов: индексы 0-4, 6-10, 12-16
+# (col 5 = 5,11,17 — заняты display-слоем)
+
+[[slot]]
+index        = 0
+action       = "chs.deck.webtile"
+url          = "https://dzen.ru/"
+web_interval = 60.0
+web_start    = 0
+web_cols     = 5
+web_rows     = 3
+web_gap_x = 8
+web_gap_y = 8
+
+[[slot]]
+index = 1
+action = "chs.deck.webtile"
+url = "https://dzen.ru/"
+web_interval = 60.0
+web_start = 0
+web_cols = 5
+web_rows = 3
+web_gap_x = 8
+web_gap_y = 8
+
+[[slot]]
+index = 2
+action = "chs.deck.webtile"
+url = "https://dzen.ru/"
+web_interval = 60.0
+web_start = 0
+web_cols = 5
+web_rows = 3
+web_gap_x = 8
+web_gap_y = 8
+
+[[slot]]
+index = 3
+action = "chs.deck.webtile"
+url = "https://dzen.ru/"
+web_interval = 60.0
+web_start = 0
+web_cols = 5
+web_rows = 3
+web_gap_x = 8
+web_gap_y = 8
+
+[[slot]]
+index = 4
+action = "chs.deck.webtile"
+url = "https://dzen.ru/"
+web_interval = 60.0
+web_start = 0
+web_cols = 5
+web_rows = 3
+web_gap_x = 8
+web_gap_y = 8
+
+[[slot]]
+index = 6
+action = "chs.deck.webtile"
+url = "https://dzen.ru/"
+web_interval = 60.0
+web_start = 0
+web_cols = 5
+web_rows = 3
+web_gap_x = 8
+web_gap_y = 8
+
+[[slot]]
+index = 7
+action = "chs.deck.webtile"
+url = "https://dzen.ru/"
+web_interval = 60.0
+web_start = 0
+web_cols = 5
+web_rows = 3
+web_gap_x = 8
+web_gap_y = 8
+
+[[slot]]
+index = 8
+action = "chs.deck.webtile"
+url = "https://dzen.ru/"
+web_interval = 60.0
+web_start = 0
+web_cols = 5
+web_rows = 3
+web_gap_x = 8
+web_gap_y = 8
+
+[[slot]]
+index = 9
+action = "chs.deck.webtile"
+url = "https://dzen.ru/"
+web_interval = 60.0
+web_start = 0
+web_cols = 5
+web_rows = 3
+web_gap_x = 8
+web_gap_y = 8
+
+[[slot]]
+index = 10
+action = "chs.deck.webtile"
+url = "https://dzen.ru/"
+web_interval = 60.0
+web_start = 0
+web_cols = 5
+web_rows = 3
+web_gap_x = 8
+web_gap_y = 8
+
+[[slot]]
+index = 12
+action = "chs.deck.webtile"
+url = "https://dzen.ru/"
+web_interval = 60.0
+web_start = 0
+web_cols = 5
+web_rows = 3
+web_gap_x = 8
+web_gap_y = 8
+
+[[slot]]
+index = 13
+action = "chs.deck.webtile"
+url = "https://dzen.ru/"
+web_interval = 60.0
+web_start = 0
+web_cols = 5
+web_rows = 3
+web_gap_x = 8
+web_gap_y = 8
+
+[[slot]]
+index = 14
+action = "chs.deck.webtile"
+url = "https://dzen.ru/"
+web_interval = 60.0
+web_start = 0
+web_cols = 5
+web_rows = 3
+web_gap_x = 8
+web_gap_y = 8
+
+[[slot]]
+index = 15
+action = "chs.deck.webtile"
+url = "https://dzen.ru/"
+web_interval = 60.0
+web_start = 0
+web_cols = 5
+web_rows = 3
+web_gap_x = 8
+web_gap_y = 8
+
+[[slot]]
+index = 16
+action = "chs.deck.webtile"
+url = "https://dzen.ru/"
+web_interval = 60.0
+web_start = 0
+web_cols = 5
+web_rows = 3
+web_gap_x = 8
+web_gap_y = 8

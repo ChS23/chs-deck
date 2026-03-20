@@ -15,6 +15,7 @@ deploy:
     cp assets/pi-stats.html  {{plugins_dir}}/{{id}}/assets/
     cp assets/pi-shell.html  {{plugins_dir}}/{{id}}/assets/
     cp assets/pi-media.html  {{plugins_dir}}/{{id}}/assets/
+    cp screenshot.js         {{plugins_dir}}/{{id}}/
     cp target/plugin/x86_64-unknown-linux-gnu/release/chs-deck {{plugins_dir}}/{{id}}/chs-deck-linux
     @echo "Deployed to {{plugins_dir}}/{{id}}"
 
@@ -26,25 +27,38 @@ gen-profile name="work":
     cargo run --bin gen_profile -- {{name}} 2>/dev/null > {{profile_dir}}/{{name}}.json
     @echo "Profile '{{name}}' written"
 
-# Regenerate ALL profiles (nav buttons get correct ring links)
+# Regenerate ALL profiles — удаляет устаревшие JSON, пишет актуальные
 gen-profiles:
     #!/usr/bin/env bash
     set -e
+    # Удаляем JSON-файлы без соответствующего .toml
+    for j in {{profile_dir}}/*.json; do
+      name=$(basename "$j" .json)
+      if [ ! -f "profiles/$name.toml" ]; then
+        rm "$j"
+        echo "  ✗ removed $name"
+      fi
+    done
+    # Генерируем актуальные
     for f in profiles/*.toml; do
       name=$(basename "$f" .toml)
       cargo run --bin gen_profile -- "$name" 2>/dev/null > "{{profile_dir}}/$name.json"
       echo "  ✓ $name"
     done
-    echo "All profiles written to {{profile_dir}}"
+    echo "Done → {{profile_dir}}"
 
-# Kill OpenDeck → write profile → relaunch
-reload-profile name="work": (gen-profile name)
-    @echo "Stopping OpenDeck..."
+# Regenerate все профили + перезапуск OpenDeck
+reload: gen-profiles
     pkill -x opendeck || true
     sleep 1
-    @echo "Launching OpenDeck..."
     opendeck &
-    @echo "Done"
+    @echo "OpenDeck restarted"
+
+# Генерация всех профилей + перезапуск OpenDeck
+reload-profile: gen-profiles
+    pkill -x opendeck || true
+    sleep 1
+    opendeck &
 
 # Full cycle: build + deploy + reload profile
 release: install reload-profile

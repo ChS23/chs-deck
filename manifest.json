@@ -62,6 +62,22 @@
       ]
     },
     {
+      "Name": "Web Tile",
+      "UUID": "chs.deck.webtile",
+      "Icon": "assets/shell",
+      "Tooltip": "Renders a web page as tiled image across deck buttons",
+      "Controllers": ["Keypad"],
+      "States": [
+        {
+          "Image": "assets/shell",
+          "Title": "",
+          "TitleAlignment": "middle",
+          "FontSize": "20",
+          "TitleColor": "#7dd3fc"
+        }
+      ]
+    },
+    {
       "Name": "Shell Command",
       "UUID": "chs.deck.shell",
       "Icon": "assets/shell",

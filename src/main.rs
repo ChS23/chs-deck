@@ -33,6 +33,7 @@ async fn main() -> OpenActionResult<()> {
     register_action(actions::media::Media).await;
     register_action(actions::shell::Shell).await;
     register_action(actions::video::VideoPlayer).await;
+    register_action(actions::webtile::WebTile).await;
 
     run(std::env::args().collect()).await
 }

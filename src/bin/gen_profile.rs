@@ -93,7 +93,7 @@ fn state(image: &str, text: &str, colour: &str) -> Value {
     })
 }
 
-fn key(index: usize, uuid: &str, name: &str, plugin: &str, icon: &str, states: Vec<Value>, settings: Value) -> Value {
+fn key(index: usize, uuid: &str, name: &str, plugin: &str, icon: &str, pi: &str, states: Vec<Value>, settings: Value) -> Value {
     json!({
         "action": {
             "controllers": ["Keypad"],
@@ -101,7 +101,7 @@ fn key(index: usize, uuid: &str, name: &str, plugin: &str, icon: &str, states: V
             "icon": icon,
             "name": name,
             "plugin": plugin,
-            "property_inspector": "",
+            "property_inspector": pi,
             "states": states,
             "supported_in_multi_actions": true,
             "tooltip": name,
@@ -119,13 +119,13 @@ fn key(index: usize, uuid: &str, name: &str, plugin: &str, icon: &str, states: V
 fn stats_key(index: usize, stat: &str) -> Value {
     let icon = format!("{PLUGIN_DIR}/assets/stats-{stat}@2x.png");
     let states = vec![state(&icon, "", "#7dd3fc")];
-    key(index, "chs.deck.stats", &format!("Stats: {stat}"), PLUGIN, &icon, states, json!({ "stat": stat }))
+    key(index, "chs.deck.stats", &format!("Stats: {stat}"), PLUGIN, &icon, "", states, json!({ "stat": stat }))
 }
 
 fn docker_count_key(index: usize) -> Value {
     let icon = format!("{PLUGIN_DIR}/assets/docker-count@2x.png");
     let states = vec![state(&icon, "--", "#7dd3fc")];
-    key(index, "chs.deck.docker.count", "Docker: Container Count", PLUGIN, &icon, states, json!({}))
+    key(index, "chs.deck.docker.count", "Docker: Container Count", PLUGIN, &icon, "", states, json!({}))
 }
 
 fn media_key(index: usize, media_action: &str) -> Value {
@@ -137,7 +137,7 @@ fn media_key(index: usize, media_action: &str) -> Value {
     };
     let icon = format!("{PLUGIN_DIR}/assets/{icon_name}@2x.png");
     let states = vec![state(&icon, label, "#f0abfc")];
-    key(index, "chs.deck.media", label, PLUGIN, &icon, states, json!({ "action": media_action }))
+    key(index, "chs.deck.media", label, PLUGIN, &icon, &format!("{PLUGIN_DIR}/assets/pi-media.html"), states, json!({ "action": media_action }))
 }
 
 fn shell_key(index: usize, command: &str, label: Option<&str>) -> Value {
@@ -145,7 +145,7 @@ fn shell_key(index: usize, command: &str, label: Option<&str>) -> Value {
     let truncated = if command.len() > 12 { &command[..12] } else { command };
     let display = label.unwrap_or(truncated);
     let states = vec![state(&icon, display, "#22c55e")];
-    key(index, "chs.deck.shell", display, PLUGIN, &icon, states, json!({ "cmd": command }))
+    key(index, "chs.deck.shell", display, PLUGIN, &icon, &format!("{PLUGIN_DIR}/assets/pi-shell.html"), states, json!({ "cmd": command }))
 }
 
 fn desktop_entry_key(index: usize, app: &str) -> Value {
@@ -266,7 +266,7 @@ fn build_slot(slot: &SlotDef, prev: &str, next: &str) -> Value {
 fn video_key(index: usize, path: &str, start: usize, cols: usize, rows: usize, fps: f32, gap_x: u32, gap_y: u32) -> Value {
     let icon = format!("{PLUGIN_DIR}/assets/media-play@2x.png");
     let states = vec![state(&icon, "", "#f0abfc")];
-    key(index, "chs.deck.video", "Video Tile", PLUGIN, &icon, states,
+    key(index, "chs.deck.video", "Video Tile", PLUGIN, &icon, &format!("{PLUGIN_DIR}/assets/pi-video.html"), states,
         json!({ "path": path, "start": start, "cols": cols, "rows": rows, "fps": fps,
                 "gap_x": gap_x, "gap_y": gap_y, "slot_index": index }))
 }
@@ -274,7 +274,7 @@ fn video_key(index: usize, path: &str, start: usize, cols: usize, rows: usize, f
 fn webtile_key(index: usize, url: &str, interval: f32, start: usize, cols: usize, rows: usize, gap_x: u32, gap_y: u32) -> Value {
     let icon = format!("{PLUGIN_DIR}/assets/shell@2x.png");
     let states = vec![state(&icon, "", "#7dd3fc")];
-    key(index, "chs.deck.webtile", "Web Tile", PLUGIN, &icon, states,
+    key(index, "chs.deck.webtile", "Web Tile", PLUGIN, &icon, "", states,
         json!({ "url": url, "interval": interval, "start": start, "cols": cols, "rows": rows,
                 "gap_x": gap_x, "gap_y": gap_y, "slot_index": index }))
 }

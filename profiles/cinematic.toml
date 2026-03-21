@@ -29,7 +29,7 @@ video_path  = "/home/chs/Загрузки/sung-jin-woo-vs-architect-solo-levelin
 video_start = 0
 video_cols  = 5
 video_rows  = 3
-video_fps   = 12
+video_fps   = 6
 video_gap_x = 25
 video_gap_y = 25
 
@@ -40,7 +40,7 @@ video_path  = "/home/chs/Загрузки/sung-jin-woo-vs-architect-solo-levelin
 video_start = 0
 video_cols  = 5
 video_rows  = 3
-video_fps   = 12
+video_fps   = 6
 video_gap_x = 25
 video_gap_y = 25
 
@@ -51,7 +51,7 @@ video_path  = "/home/chs/Загрузки/sung-jin-woo-vs-architect-solo-levelin
 video_start = 0
 video_cols  = 5
 video_rows  = 3
-video_fps   = 12
+video_fps   = 6
 video_gap_x = 25
 video_gap_y = 25
 
@@ -62,7 +62,7 @@ video_path  = "/home/chs/Загрузки/sung-jin-woo-vs-architect-solo-levelin
 video_start = 0
 video_cols  = 5
 video_rows  = 3
-video_fps   = 12
+video_fps   = 6
 video_gap_x = 25
 video_gap_y = 25
 
@@ -73,7 +73,7 @@ video_path  = "/home/chs/Загрузки/sung-jin-woo-vs-architect-solo-levelin
 video_start = 0
 video_cols  = 5
 video_rows  = 3
-video_fps   = 12
+video_fps   = 6
 video_gap_x = 25
 video_gap_y = 25
 
@@ -84,7 +84,7 @@ video_path  = "/home/chs/Загрузки/sung-jin-woo-vs-architect-solo-levelin
 video_start = 0
 video_cols  = 5
 video_rows  = 3
-video_fps   = 12
+video_fps   = 6
 video_gap_x = 25
 video_gap_y = 25
 
@@ -95,7 +95,7 @@ video_path  = "/home/chs/Загрузки/sung-jin-woo-vs-architect-solo-levelin
 video_start = 0
 video_cols  = 5
 video_rows  = 3
-video_fps   = 12
+video_fps   = 6
 video_gap_x = 25
 video_gap_y = 25
 
@@ -106,7 +106,7 @@ video_path  = "/home/chs/Загрузки/sung-jin-woo-vs-architect-solo-levelin
 video_start = 0
 video_cols  = 5
 video_rows  = 3
-video_fps   = 12
+video_fps   = 6
 video_gap_x = 25
 video_gap_y = 25
 
@@ -117,7 +117,7 @@ video_path  = "/home/chs/Загрузки/sung-jin-woo-vs-architect-solo-levelin
 video_start = 0
 video_cols  = 5
 video_rows  = 3
-video_fps   = 12
+video_fps   = 6
 video_gap_x = 25
 video_gap_y = 25
 
@@ -128,7 +128,7 @@ video_path  = "/home/chs/Загрузки/sung-jin-woo-vs-architect-solo-levelin
 video_start = 0
 video_cols  = 5
 video_rows  = 3
-video_fps   = 12
+video_fps   = 6
 video_gap_x = 25
 video_gap_y = 25
 
@@ -139,7 +139,7 @@ video_path  = "/home/chs/Загрузки/sung-jin-woo-vs-architect-solo-levelin
 video_start = 0
 video_cols  = 5
 video_rows  = 3
-video_fps   = 12
+video_fps   = 6
 video_gap_x = 25
 video_gap_y = 25
 
@@ -150,7 +150,7 @@ video_path  = "/home/chs/Загрузки/sung-jin-woo-vs-architect-solo-levelin
 video_start = 0
 video_cols  = 5
 video_rows  = 3
-video_fps   = 12
+video_fps   = 6
 video_gap_x = 25
 video_gap_y = 25
 
@@ -161,7 +161,7 @@ video_path  = "/home/chs/Загрузки/sung-jin-woo-vs-architect-solo-levelin
 video_start = 0
 video_cols  = 5
 video_rows  = 3
-video_fps   = 12
+video_fps   = 6
 video_gap_x = 25
 video_gap_y = 25
 
@@ -172,7 +172,7 @@ video_path  = "/home/chs/Загрузки/sung-jin-woo-vs-architect-solo-levelin
 video_start = 0
 video_cols  = 5
 video_rows  = 3
-video_fps   = 12
+video_fps   = 6
 video_gap_x = 25
 video_gap_y = 25
 
@@ -183,6 +183,6 @@ video_path  = "/home/chs/Загрузки/sung-jin-woo-vs-architect-solo-levelin
 video_start = 0
 video_cols  = 5
 video_rows  = 3
-video_fps   = 12
+video_fps   = 6
 video_gap_x = 25
 video_gap_y = 25

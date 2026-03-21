@@ -12,9 +12,7 @@ deploy:
     mkdir -p {{plugins_dir}}/{{id}}/assets
     cp manifest.json        {{plugins_dir}}/{{id}}/
     cp assets/*.png         {{plugins_dir}}/{{id}}/assets/
-    cp assets/pi-stats.html  {{plugins_dir}}/{{id}}/assets/
-    cp assets/pi-shell.html  {{plugins_dir}}/{{id}}/assets/
-    cp assets/pi-media.html  {{plugins_dir}}/{{id}}/assets/
+    cp assets/pi-*.html      {{plugins_dir}}/{{id}}/assets/
     cp screenshot.js         {{plugins_dir}}/{{id}}/
     cp target/plugin/x86_64-unknown-linux-gnu/release/chs-deck {{plugins_dir}}/{{id}}/chs-deck-linux
     @echo "Deployed to {{plugins_dir}}/{{id}}"

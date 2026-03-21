@@ -1,64 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<style>
-  body { font-family: sans-serif; font-size: 13px; padding: 8px; color: #ddd; background: #1e1e2e; }
-  label { display: block; margin-top: 10px; margin-bottom: 4px; color: #cba6f7; }
-  input  { width: 100%; padding: 5px; background: #313244; color: #cdd6f4; border: 1px solid #45475a; border-radius: 4px; box-sizing: border-box; }
-  .row   { display: flex; gap: 6px; }
-  .row input { width: 100%; }
-  p.hint { font-size: 11px; color: #585b70; margin-top: 12px; }
-</style>
+  <meta charset="utf-8"/>
+  <style>
+    body { background: #2d2d2d; color: #fff; font-family: system-ui, sans-serif; padding: 12px; font-size: 13px; margin: 0; }
+    label { display: block; margin-bottom: 6px; color: #aaa; font-size: 11px; text-transform: uppercase; letter-spacing: .5px; }
+    input {
+      width: 100%; padding: 7px 8px; background: #1a1a1a; color: #c4b5fd;
+      border: 1px solid #555; border-radius: 4px; font-size: 12px;
+      box-sizing: border-box; margin-bottom: 10px;
+    }
+    .row { display: flex; gap: 6px; }
+    .row > div { flex: 1; }
+    button {
+      width: 100%; padding: 8px; background: #7c3aed; color: #fff; border: none;
+      border-radius: 4px; font-size: 13px; cursor: pointer; margin-top: 4px;
+    }
+    button:hover { background: #6d28d9; }
+    #status { font-size: 11px; color: #4ade80; margin-top: 6px; min-height: 14px; }
+  </style>
 </head>
 <body>
+  <label>Video path or URL</label>
+  <input id="path" type="text" placeholder="/home/user/video.mp4 or https://...">
 
-<label>Video path</label>
-<input id="path" type="text" placeholder="/home/user/video.mp4">
-
-<label>Start slot (top-left index)</label>
-<input id="start" type="number" min="0" max="17" value="0">
-
-<div class="row">
-  <div style="flex:1">
-    <label>Cols</label>
-    <input id="cols" type="number" min="1" max="5" value="5">
+  <div class="row">
+    <div><label>FPS</label><input id="fps" type="number" min="1" max="30" value="10"></div>
+    <div><label>Gap X</label><input id="gap_x" type="number" min="0" max="100" value="0"></div>
+    <div><label>Gap Y</label><input id="gap_y" type="number" min="0" max="100" value="0"></div>
   </div>
-  <div style="flex:1">
-    <label>Rows</label>
-    <input id="rows" type="number" min="1" max="3" value="3">
-  </div>
-  <div style="flex:1">
-    <label>FPS</label>
-    <input id="fps" type="number" min="1" max="30" value="10">
-  </div>
-</div>
 
-<p class="hint">
-  Place this action on every button in the grid with <b>identical settings</b>.<br>
-  Requires <code>ffmpeg</code> in PATH.
-</p>
+  <button id="apply">Apply</button>
+  <div id="status"></div>
 
-<script>
-  const fields = ['path', 'start', 'cols', 'rows', 'fps'];
+  <script>
+    function connectElgatoStreamDeckSocket(inPort, inUUID, inRegisterEvent, inInfo, inActionInfo) {
+      var ws = new WebSocket('ws://localhost:' + inPort);
+      var actionInfo = JSON.parse(inActionInfo);
+      var settings = actionInfo.payload.settings || {};
 
-  document.addEventListener('websocketCreate', ({ detail: { actionInfo, websocket } }) => {
-    const settings = actionInfo?.payload?.settings ?? {};
-    fields.forEach(id => {
-      if (settings[id] !== undefined) document.getElementById(id).value = settings[id];
-    });
+      document.getElementById('path').value  = settings.path  || '';
+      document.getElementById('fps').value   = settings.fps   || 10;
+      document.getElementById('gap_x').value = settings.gap_x || 0;
+      document.getElementById('gap_y').value = settings.gap_y || 0;
 
-    const save = () => {
-      const payload = {};
-      fields.forEach(id => {
-        const el = document.getElementById(id);
-        payload[id] = el.type === 'number' ? Number(el.value) : el.value;
-      });
-      websocket.send(JSON.stringify({ event: 'setSettings', context: actionInfo.context, payload }));
-    };
+      ws.onopen = function() {
+        ws.send(JSON.stringify({ event: inRegisterEvent, uuid: inUUID }));
+        document.getElementById('status').textContent = 'Connected';
+      };
 
-    fields.forEach(id => document.getElementById(id).addEventListener('change', save));
-  });
-</script>
+      ws.onerror = function() {
+        document.getElementById('status').textContent = 'WS error';
+      };
+
+      function save() {
+        settings.path  = document.getElementById('path').value;
+        settings.fps   = Number(document.getElementById('fps').value);
+        settings.gap_x = Number(document.getElementById('gap_x').value);
+        settings.gap_y = Number(document.getElementById('gap_y').value);
+
+        var payload = {};
+        for (var k in settings) { payload[k] = settings[k]; }
+
+        ws.send(JSON.stringify({ event: 'setSettings', context: inUUID, payload: payload }));
+        ws.send(JSON.stringify({ event: 'sendToPlugin', action: actionInfo.action, context: inUUID, payload: payload }));
+        document.getElementById('status').textContent = 'Sent! path=' + settings.path;
+      }
+
+      document.getElementById('apply').addEventListener('click', save);
+    }
+  </script>
 </body>
 </html>
